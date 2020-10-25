@@ -15,12 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="HWK4-JeffZhang.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="YUCCA.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="YUCCA2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

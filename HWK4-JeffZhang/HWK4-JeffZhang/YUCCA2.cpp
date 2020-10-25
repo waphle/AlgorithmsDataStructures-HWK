@@ -1,29 +1,31 @@
 #include<iostream>
 #define NODE 9
 
-int graph[NODE][NODE] = { {0, 1, 1, 0},
-						  {1, 0, 1, 1},
-						  {0, 0, 0, 0},
-						  {1, 0, 1, 0} };
+int graph[NODE][NODE] = { {0, 1, 1, 1, 1, 1},
+						  {0, 0, 1, 0, 0, 0},
+						  {0, 1, 0, 1, 0, 0},
+						  {0, 0, 0, 0, 1, 0},
+						  {0, 0, 0, 0, 0, 0},
+						  {0, 0, 0, 0, 1, 0} };
 
-void traverse(int u, bool visited[]) {
-	visited[u] = true; //mark v as visited
-	for (int v = 0; v < NODE; v++) {
-		if (graph[u][v]) {
-			if (!visited[v])
-				traverse(v, visited);
+void traverse(int i, bool visited[]) {
+	visited[i] = true;
+	for (int h = 0; h < NODE; h++) {
+		if (graph[i][h]) {
+			if (!visited[h])
+				traverse(h, visited);
 		}
 	}
 }
 
 bool isYUPPA() {
-	bool* vis = new bool[NODE]; //for all vertex u as start point, check whether all nodes are visible or not
-	for (int u = 0; u < NODE; u++) {
-		for (int i = 0; i < NODE; i++)
-			vis[i] = false;   //initialize as no node is visited
-		traverse(u, vis);
-		for (int i = 0; i < NODE; i++) {
-			if (!vis[i]) //if there is a node, not visited by traversal, graph is not connected
+	bool* vis = new bool[NODE]; 
+	for (int k = 0; k < NODE; k++) {
+		for (int j = 0; j < NODE; j++)
+			vis[j] = false;
+		traverse(k, vis);
+		for (int j = 0; j < NODE; j++) {
+			if (!vis[j])
 				return false;
 		}
 	}

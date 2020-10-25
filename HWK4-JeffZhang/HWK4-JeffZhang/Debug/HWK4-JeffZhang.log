@@ -1,0 +1,12 @@
+﻿  YUCCA2.cpp
+C:\Users\jeffz\Downloads\2020 Fall\Algorithms and Data Structures\HWK\HWK4-JeffZhang\HWK4-JeffZhang\YUCCA2.cpp(21,41): error C2440: 'initializing': cannot convert from 'void *' to 'bool *'
+C:\Users\jeffz\Downloads\2020 Fall\Algorithms and Data Structures\HWK\HWK4-JeffZhang\HWK4-JeffZhang\YUCCA2.cpp(21,12): message : Conversion from 'void*' to pointer to non-'void' requires an explicit cast
+  YUCCA.cpp
+C:\Users\jeffz\Downloads\2020 Fall\Algorithms and Data Structures\HWK\HWK4-JeffZhang\HWK4-JeffZhang\YUCCA.cpp(3,21): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\jeffz\Downloads\2020 Fall\Algorithms and Data Structures\HWK\HWK4-JeffZhang\HWK4-JeffZhang\YUCCA.cpp(4,7): error C2143: syntax error: missing ';' before '<'
+C:\Users\jeffz\Downloads\2020 Fall\Algorithms and Data Structures\HWK\HWK4-JeffZhang\HWK4-JeffZhang\YUCCA.cpp(4,7): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\jeffz\Downloads\2020 Fall\Algorithms and Data Structures\HWK\HWK4-JeffZhang\HWK4-JeffZhang\YUCCA.cpp(24,3): error C2065: 'Adj': undeclared identifier
+C:\Users\jeffz\Downloads\2020 Fall\Algorithms and Data Structures\HWK\HWK4-JeffZhang\HWK4-JeffZhang\YUCCA.cpp(29,23): error C2065: 'Adj': undeclared identifier
+C:\Users\jeffz\Downloads\2020 Fall\Algorithms and Data Structures\HWK\HWK4-JeffZhang\HWK4-JeffZhang\YUCCA.cpp(31,12): error C2065: 'Adj': undeclared identifier
+C:\Users\jeffz\Downloads\2020 Fall\Algorithms and Data Structures\HWK\HWK4-JeffZhang\HWK4-JeffZhang\YUCCA.cpp(39,8): error C2065: 'Adj': undeclared identifier
+  Generating Code...

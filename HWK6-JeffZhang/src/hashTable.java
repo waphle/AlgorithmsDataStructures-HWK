@@ -28,15 +28,15 @@ public static final int H = 35, N = 31;
   
 		int pos = (hash(key) + i) % H;
   
-		// If a key inputed is missing from the AUID text file, the program
-		// will display that the inputed key is not part of the AUID list.
+		// If a key inputted is missing from the AUID text file, the program
+		// will display that the inputted key is not part of the AUID list.
 		if(i == H || hashTable[pos] == 0) {
 			System.out.println(key + " is not in AUID list.");
 			return 0;
 		}
 		
-		// If an inputed key is found in the AUID text file, the program
-		// will display the inputed key and its location, or index, in
+		// If an inputted key is found in the AUID text file, the program
+		// will display the inputted key and its location, or index, in
 		// the hash table. 
 		if(hashTable[pos] == key) {
 			System.out.println(key + " found at index: " + pos);

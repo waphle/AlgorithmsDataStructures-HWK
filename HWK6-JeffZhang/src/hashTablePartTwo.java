@@ -1,10 +1,10 @@
 import java.util.Scanner;
 import java.io.*;
 
-public class hashTable {
+public class hashTablePartTwo {
 	
-// H = Hash Table Size, N = Number of AUID's
-public static final int H = 35, N = 31;
+// S = Hash Table Size, N = Number of AUID's
+public static final int S = 50, N = 31;
   
 	static int hash(int x) {
 		return (x % N);
@@ -12,7 +12,7 @@ public static final int H = 35, N = 31;
   
 	static int insert(int hashTable[], int x, int i) {
   
-		int pos = (hash(x) + i) % H;
+		int pos = (hash(x) + i) % S;
 		if(hashTable[pos] == 0) {
 			hashTable[pos] = x;
 			return 0;
@@ -21,21 +21,16 @@ public static final int H = 35, N = 31;
 		return 1 + insert(hashTable, x, i + 1);
 	}
   
-	// Search for the keys
 	static int search(int hashTable[], int key, int i) {
   
-		int pos = (hash(key) + i) % H;
+		int pos = (hash(key) + i) % S;
   
-		// If a key inputed is missing from the AUID text file, the program
-		// will display that the inputed key is not part of the AUID list.
-		if(i == H || hashTable[pos] == 0) {
-			System.out.println(key + " is not in AUID list.");
+		// case for key not found
+		if(i == S || hashTable[pos] == 0) {
+			System.out.println(key + " not found");
 			return 0;
 		}
 		
-		// If an inputed key is found in the AUID text file, the program
-		// will display the inputed key and its location, or index, in
-		// the hash table. 
 		if(hashTable[pos] == key) {
 			System.out.println(key + " found at index: " + pos);
 			return 0;
@@ -44,11 +39,11 @@ public static final int H = 35, N = 31;
 		return 1 + search(hashTable, key, i+1);
 	}
   
-  	// Driver Code
+  	// driver method
 	public static void main(String[] args) {
   
-		// hash table size of 35
-		int hashTable[] = new int[35];
+		// hash table size of 50
+		int hashTable[] = new int[50];
 		double avg = 0.0;
   
 		try {
@@ -70,7 +65,7 @@ public static final int H = 35, N = 31;
 		System.out.println("The average number of probing in creating hash table: " + avg);
 
 		System.out.println("Hash table: ");
-		for(int i=0; i<H; i++) {
+		for(int i=0; i<S; i++) {
 			System.out.print(hashTable[i] + " ");
 		}
 		

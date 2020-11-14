@@ -6,10 +6,12 @@ public class hashTable {
 // H = Hash Table Size, N = Number of AUID's
 public static final int H = 35, N = 31;
   
+	// Hash calculation
 	static int hash(int x) {
 		return (x % N);
 	}
-  
+	  
+	// Key insertion
 	static int insert(int hashTable[], int x, int i) {
   
 		int pos = (hash(x) + i) % H;
@@ -21,7 +23,7 @@ public static final int H = 35, N = 31;
 		return 1 + insert(hashTable, x, i + 1);
 	}
   
-	// Search for the keys
+	// Search for the keys from the AUID text file
 	static int search(int hashTable[], int key, int i) {
   
 		int pos = (hash(key) + i) % H;
@@ -40,7 +42,8 @@ public static final int H = 35, N = 31;
 			System.out.println(key + " found at index: " + pos);
 			return 0;
 		}
-  
+		
+		// Add each key to the hash table after review. 
 		return 1 + search(hashTable, key, i+1);
 	}
   
@@ -51,6 +54,7 @@ public static final int H = 35, N = 31;
 		int hashTable[] = new int[35];
 		double avg = 0.0;
   
+		// Find the AUID text file and read it through. 
 		try {
 			Scanner sc = new Scanner(new File("C:\\Users\\jeffz\\Downloads\\2020 Fall\\Algorithms and Data Structures\\HWK\\HWK6-JeffZhang\\AUID.txt"));
   
@@ -61,15 +65,17 @@ public static final int H = 35, N = 31;
   
 		} 
 		
+		// If the AUID text file is missing, tell the user. 
 		catch(FileNotFoundException e) {
 			System.out.println("AUID.text file not found.");
 		}
   
-		// calculate average by dividing by 32
+		// Calculate average by dividing by N = 32 (number of AUID's)
 		avg = avg / 32;
 		System.out.println("The average number of probing in creating hash table: " + avg);
 
-		System.out.println("Hash table: ");
+		// Print out the hash table
+		System.out.println("The Hash Table: ");
 		for(int i=0; i<H; i++) {
 			System.out.print(hashTable[i] + " ");
 		}

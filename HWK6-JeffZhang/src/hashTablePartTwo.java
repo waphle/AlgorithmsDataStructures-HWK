@@ -3,16 +3,18 @@ import java.io.*;
 
 public class hashTablePartTwo {
 	
-// S = Hash Table Size, N = Number of AUID's
-public static final int S = 50, N = 31;
+// H = Hash Table Size, N = Number of AUID's
+public static final int H = 50, N = 31;
   
+	// Hash calculation
 	static int hash(int x) {
 		return (x % N);
 	}
   
+	// Key insertion
 	static int insert(int hashTable[], int x, int i) {
   
-		int pos = (hash(x) + i) % S;
+		int pos = (hash(x) + i) % H;
 		if(hashTable[pos] == 0) {
 			hashTable[pos] = x;
 			return 0;
@@ -21,31 +23,38 @@ public static final int S = 50, N = 31;
 		return 1 + insert(hashTable, x, i + 1);
 	}
   
+	// Search for the keys from the AUID text file
 	static int search(int hashTable[], int key, int i) {
   
-		int pos = (hash(key) + i) % S;
+		int pos = (hash(key) + i) % H;
   
-		// case for key not found
-		if(i == S || hashTable[pos] == 0) {
-			System.out.println(key + " not found");
+		// If a key inputed is missing from the AUID text file, the program
+		// will display that the inputed key is not part of the AUID list.
+		if(i == H || hashTable[pos] == 0) {
+			System.out.println(key + " is not in AUID list.");
 			return 0;
 		}
 		
+		// If an inputed key is found in the AUID text file, the program
+		// will display the inputed key and its location, or index, in
+		// the hash table. 
 		if(hashTable[pos] == key) {
 			System.out.println(key + " found at index: " + pos);
 			return 0;
 		}
-  
+		
+		// Add each key to the hash table after review. 
 		return 1 + search(hashTable, key, i+1);
 	}
   
-  	// driver method
+  	// Driver Code
 	public static void main(String[] args) {
   
 		// hash table size of 50
 		int hashTable[] = new int[50];
 		double avg = 0.0;
   
+		// Find the AUID text file and read it through. 
 		try {
 			Scanner sc = new Scanner(new File("C:\\Users\\jeffz\\Downloads\\2020 Fall\\Algorithms and Data Structures\\HWK\\HWK6-JeffZhang\\AUID.txt"));
   
@@ -56,16 +65,18 @@ public static final int S = 50, N = 31;
   
 		} 
 		
+		// If the AUID text file is missing, tell the user. 
 		catch(FileNotFoundException e) {
 			System.out.println("AUID.text file not found.");
 		}
   
-		// calculate average by dividing by 32
+		// Calculate average by dividing by N = 32 (number of AUID's)
 		avg = avg / 32;
 		System.out.println("The average number of probing in creating hash table: " + avg);
 
-		System.out.println("Hash table: ");
-		for(int i=0; i<S; i++) {
+		// Print out the hash table
+		System.out.println("The Hash Table: ");
+		for(int i=0; i<H; i++) {
 			System.out.print(hashTable[i] + " ");
 		}
 		

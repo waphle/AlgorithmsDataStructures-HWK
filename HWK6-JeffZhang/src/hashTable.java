@@ -31,15 +31,14 @@ public static final int H = 35, N = 31;
 		// If a key inputted is missing from the AUID text file, the program
 		// will display that the inputted key is not part of the AUID list.
 		if(i == H || hashTable[pos] == 0) {
-			System.out.println(key + " is not in AUID list.");
+			System.out.println(key + " is NOT in the AUID list.");
 			return 0;
 		}
 		
 		// If an inputted key is found in the AUID text file, the program
-		// will display the inputted key and its location, or index, in
-		// the hash table. 
+		// will display the inputted key and declare it is from the text file. 
 		if(hashTable[pos] == key) {
-			System.out.println(key + " found at index: " + pos);
+			System.out.println(key + " IS from the AUID file.");
 			return 0;
 		}
 		

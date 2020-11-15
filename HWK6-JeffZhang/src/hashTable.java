@@ -47,26 +47,18 @@ public static final int H = 35, N = 31;
 	}
   
   	// Driver Code
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
   
 		// hash table size of 35
 		int hashTable[] = new int[35];
 		double avg = 0.0;
-  
-		// Find the AUID text file and read it through. 
-		try {
-			Scanner sc = new Scanner(new File("C:\\Users\\jeffz\\Downloads\\2020 Fall\\Algorithms and Data Structures\\HWK\\HWK6-JeffZhang\\AUID.txt"));
-  
-			for(int i=1; i<=32; i++) {
-				int x = sc.nextInt();
-				avg += insert(hashTable, x, 0);
-			}
-  
-		} 
 		
-		// If the AUID text file is missing, tell the user. 
-		catch(FileNotFoundException e) {
-			System.out.println("AUID.text file not found.");
+		// Find the AUID text file and read it through. 
+		Scanner sc = new Scanner(new File("C:\\Users\\jeffz\\Downloads\\2020 Fall\\Algorithms and Data Structures\\HWK\\HWK6-JeffZhang\\AUID.txt"));
+		  
+		for(int i=1; i<=32; i++) {
+			int x = sc.nextInt();
+			avg += insert(hashTable, x, 0);
 		}
   
 		// Calculate average by dividing by N = 32 (number of AUID's)
@@ -74,7 +66,7 @@ public static final int H = 35, N = 31;
 		System.out.println("The average number of probing in creating hash table: " + avg);
 
 		// Print out the hash table
-		System.out.println("The Hash Table: ");
+		System.out.println("The Hash Table is: ");
 		for(int i=0; i<H; i++) {
 			System.out.print(hashTable[i] + " ");
 		}

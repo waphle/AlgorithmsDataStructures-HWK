@@ -10,18 +10,20 @@ public static final int H = 35, N = 31;
 	static int hash(int x) {
 		return (x % N);
 	}
+	
 	  
 	// Key insertion
-	static int insert(int hashTable[], int x, int i) {
+	static int insert(int hashTable[], int x, int y) {
   
-		int pos = (hash(x) + i) % H;
+		int pos = (hash(x) + y) % H;
 		if(hashTable[pos] == 0) {
 			hashTable[pos] = x;
 			return 0;
 		}
 		
-		return 1 + insert(hashTable, x, i + 1);
+		return 1 + insert(hashTable, x, y + 1);
 	}
+	
   
 	// Search for the keys from the AUID text file
 	static int search(int hashTable[], int key, int i) {
@@ -43,8 +45,9 @@ public static final int H = 35, N = 31;
 		}
 		
 		// Add each key to the hash table after review. 
-		return 1 + search(hashTable, key, i+1);
+		return 1 + search(hashTable, key, i + 1);
 	}
+	
   
   	// Driver Code
 	public static void main(String[] args) throws FileNotFoundException {
@@ -56,7 +59,7 @@ public static final int H = 35, N = 31;
 		// Find the AUID text file and read it through. 
 		Scanner sc = new Scanner(new File("C:\\Users\\jeffz\\Downloads\\2020 Fall\\Algorithms and Data Structures\\HWK\\HWK6-JeffZhang\\AUID.txt"));
 		  
-		for(int i=1; i<=32; i++) {
+		for(int i = 1; i <= 32; i++) {
 			int x = sc.nextInt();
 			avg += insert(hashTable, x, 0);
 		}
@@ -67,21 +70,21 @@ public static final int H = 35, N = 31;
 
 		// Print out the hash table
 		System.out.println("The Hash Table is: ");
-		for(int i=0; i<H; i++) {
+		for(int i = 0; i < H; i++) {
 			System.out.print(hashTable[i] + " ");
 		}
 		
 		System.out.println();
   
 		// Add keys here for the program to search
-		int searchKeys[] = {97091, 12345, 64301, 68815};
+		int findKey[] = {97091, 12345, 64301, 68815};
 		avg = 0.0;
   
-		for(int i=0; i<searchKeys.length; i++) {
-			avg += search(hashTable, searchKeys[i], 0);
+		for(int i = 0; i < findKey.length; i++) {
+			avg += search(hashTable, findKey[i], 0);
 		}
   
-		avg = avg / searchKeys.length;
+		avg = avg / findKey.length;
 		System.out.println("Average number of probing in searching hash table: " + avg);
 	}
 	
